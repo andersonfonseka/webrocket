@@ -30,6 +30,7 @@ public class WebNavigation {
 		try {
 			wp = (WebPage) clazz.newInstance();
 			wp.setBlnOnLoad(true);
+			wp.setParams(params);
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

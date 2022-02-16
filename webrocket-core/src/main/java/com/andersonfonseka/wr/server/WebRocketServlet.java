@@ -129,7 +129,7 @@ public class WebRocketServlet extends HttpServlet {
 				webpage.add(webpage.createForm());
 				
 				if (webpage.isBlnOnLoad()) {
-					webpage.onLoad(params);
+					webpage.onLoad(webpage.getParams());
 				}
 				
 				response.getWriter().println(webpage.doRender());

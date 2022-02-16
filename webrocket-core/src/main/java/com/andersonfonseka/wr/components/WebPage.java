@@ -16,6 +16,8 @@ public abstract class WebPage extends Component {
 	
 	private boolean blnOnLoad = false;
 	
+	private Map<String, String[]> params;
+	
 	private NavBar navBar;
 	
 	public WebPage(String title) {
@@ -50,6 +52,14 @@ public abstract class WebPage extends Component {
 
 	public void setNavBar(NavBar navBar) {
 		this.navBar = navBar;
+	}
+	
+	public Map<String, String[]> getParams() {
+		return params;
+	}
+
+	public void setParams(Map<String, String[]> params) {
+		this.params = params;
 	}
 
 	public abstract void onLoad(Map<String, String[]> params);

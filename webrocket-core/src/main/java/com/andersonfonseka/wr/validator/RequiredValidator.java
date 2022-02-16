@@ -37,7 +37,7 @@ public class RequiredValidator extends Validator {
 			}
 		}
 
-		return new ValidatorMessage(result);
+		return new ValidatorMessage(message, result);
 	}
 
 }
