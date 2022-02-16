@@ -10,9 +10,9 @@ webrocket isn't just another java web framework. It's a definitive framework for
 
 ## how to attest this afirmation?
 
-Let's imagine how many techs concepts do you need to learn before to start a simple 'hello world', or select a framework by creating a simple 'Hello World' and start a project believing that will be easy to go on, but you figure out that this framework is not so easy as you thought.
+Let's imagine how many techs concepts do you need to learn before to start a simple 'hello world', or select a framework by creating a simple 'Hello World' and start a project believing that will be easy to go on, but you discovered that this framework is not so easy as you thought.
 
-Meanwhile, you figured out that your time spent on the project is to support your team with java web framework doubts rather than to code the main core project features.
+Meanwhile, you realized that your time spent supporting your team with java web framework doubts is greater than the used time to code the main core features in the project.
 
 Along the 20 years, I've been looking for a java web framework with low learning curve, sometimes I got an apparently easier way to develop a web app, but we need to face with some 'adaptations', we need to learn a javascript code, a css concept, to understand the web framework lifecycle (WFL) and so on.
 
@@ -25,5 +25,5 @@ You don't need to learn many web concepts as Java Server Pages, Servlets, Routes
 
 If you want to dive into a simple way without a NPM that bring a thousand libraries to your notebook, a webrocket could be an alternative.
 
-
+Other point **webrocket is completely testable you execute your unit-test whithout worries, there's no rocket (ops!) science here. A good choice should be based on quallity, the webrocket has quality, we use bettercodehub and codeclimate to attest it.
 
