@@ -25,5 +25,5 @@ You don't need to learn many web concepts as Java Server Pages, Servlets, Routes
 
 If you want to dive into a simple way to develop a web application without to use a NPM that brings a package with thousand libraries to your notebook, the **webrocket** could be an alternative.
 
-Other point **webrocket** is completely testable, you can execute your unit-test and coverag with no worries, there's no rocket (ops!) science here. **A good choice must be based on software quallity**, the webrocket has quality, we use bettercodehub and codeclimate to attest it.
+Other point **webrocket** is completely testable, you can execute your unit tests and code coverage with no worries, there's no rocket (ops!) science here. **A good choice must be based on software quallity**, the webrocket has quality, we use bettercodehub and codeclimate to attest it.
 
