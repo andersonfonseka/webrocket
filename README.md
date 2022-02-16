@@ -23,7 +23,7 @@ Sometimes the WFL has their own rules that we need to accomplish, For example: w
 **It's easy, you don't need to learn anything besides Java**.
 You don't need to learn many web concepts as Java Server Pages, Servlets, Routes & Flows, CSS, Javascript, Validations to start a simple web application.
 
-If you don't want to dive into a simple way without a NPM that brings a package with thousand libraries to your notebook, a webrocket could be an alternative.
+If you want to dive into a simple way to develop a web application without to use a NPM that brings a package with thousand libraries to your notebook, a webrocket could be an alternative.
 
 Other point **webrocket** is completely testable you execute your unit-test whithout worries, there's no rocket (ops!) science here. **A good choice must be based on software quallity**, the webrocket has quality, we use bettercodehub and codeclimate to attest it.
 
