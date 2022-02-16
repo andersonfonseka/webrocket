@@ -18,3 +18,12 @@ Along the 20 years, I've been looking for a java web framework with low learning
 
 Sometimes the WFL has their own rules that we need to accomplish, For example: why the Java Server Faces asks for the same getXXX twice? Why the old Struts exposes the HttpRequest and Response for developer in your action implementation, its okay but when we give a power to newbies, we open some **security breaches**.
 
+## what differentiates webrocket from the others?
+
+**It's easy, you don't need to learn anything besides Java**.
+You don't need to learn many web concepts as Java Server Pages, Servlets, Routes & Flows, CSS, Javascript, Validations to start a simple web application.
+
+If you want to dive into a simple way without a NPM that bring a thousand libraries to your notebook, a webrocket could be an alternative.
+
+
+
