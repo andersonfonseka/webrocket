@@ -19,7 +19,7 @@
 		<repository>
 			<id>github</id>
 			<name>Anderson Fonseca</name>
-			<url>https://github.com/andersonfonseka/webrocket</url>
+			<url>https://github.com/andersonfonseka/webrocket/packages</url>
 		</repository>
 	</distributionManagement>
 
