@@ -31,4 +31,4 @@ jobs:
           mvn -B versions:set -DnewVersion=200000.0.0-$GITHUB_SHA -DgenerateBackupPoms=false
           mvn deploy
       env:
-        GITHUB_TOKEN: ${{ github.token.webrocket }}
+        GITHUB_TOKEN: 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
