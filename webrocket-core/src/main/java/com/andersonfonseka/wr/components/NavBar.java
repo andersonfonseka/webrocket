@@ -11,7 +11,7 @@ public class NavBar extends Component {
 	private String style = Color.LIGHT;
 
 	public NavBar(String title) {
-		super("NavBar_" + UUID.randomUUID().toString());
+		super("NavBar#" + UUID.randomUUID().toString());
 		this.title = title;
 	}
 	

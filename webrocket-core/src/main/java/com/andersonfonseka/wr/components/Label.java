@@ -7,7 +7,7 @@ public class Label extends Component {
 	private String text;
 	
 	public Label(String text) {
-		super("Label_" + UUID.randomUUID().toString());
+		super("Label#" + UUID.randomUUID().toString());
 		this.text = text;
 	}
 

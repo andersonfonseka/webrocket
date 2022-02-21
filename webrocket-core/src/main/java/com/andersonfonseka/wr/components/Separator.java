@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Separator extends Component {
 
 	public Separator() {
-		super("Separator_" + UUID.randomUUID().toString());
+		super("Separator#" + UUID.randomUUID().toString());
 	}
 
 	@Override

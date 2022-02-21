@@ -5,7 +5,11 @@ import java.util.UUID;
 public class FormGroup extends Component {
 
 	public FormGroup() {
-		super("FormGroup_" + UUID.randomUUID().toString());
+		super("FormGroup#" + UUID.randomUUID().toString());
+	}
+	
+	public FormGroup(String id) {
+		super(id);
 	}
 
 	@Override

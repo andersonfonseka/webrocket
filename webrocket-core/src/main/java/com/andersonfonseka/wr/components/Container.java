@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Container extends Component {
 
 	public Container() {
-		super("Container_" + UUID.randomUUID().toString());
+		super("Container#" + UUID.randomUUID().toString());
 	}
 
 	@Override

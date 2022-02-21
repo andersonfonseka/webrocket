@@ -20,9 +20,27 @@ public abstract class WebPage extends Component {
 	
 	private NavBar navBar;
 	
+	public static int NEW = 1;
+	
+	public static int CREATED = 2;
+	
+	private int status;
+	
+	public static int CONTAINER = 1;
+	
+	public static int CONTAINER_FLUID = 2;
+	
+	private int container = 2;
+	
 	public WebPage(String title) {
 		super("WebPage_" + UUID.randomUUID().toString());
 		this.title = title;
+	}
+	
+	public WebPage(String title, int container) {
+		super("WebPage_" + UUID.randomUUID().toString());
+		this.title = title;
+		this.container = container;
 	}
 
 	public String getTitle() {
@@ -61,6 +79,14 @@ public abstract class WebPage extends Component {
 	public void setParams(Map<String, String[]> params) {
 		this.params = params;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public abstract void onLoad(Map<String, String[]> params);
 
@@ -81,7 +107,13 @@ public abstract class WebPage extends Component {
 
 		sb.append("<body>");
 		
-		sb.append("<div class=\"container-fluid bs-docs-container\">");
+		
+		if (this.container == 1) {
+			sb.append("<div class=\"container bs-docs-container\">");
+		} else 	if (this.container == 2) {
+			sb.append("<div class=\"container-fluid bs-docs-container\">");
+		}
+
 		
 		if (null != this.navBar) {
 			sb.append(this.navBar.doRender());

@@ -120,19 +120,25 @@ public class WebRocketServlet extends HttpServlet {
 
 				
 				if (null != webpage) {
-					request.getSession().setAttribute("_last", webpage);
-				} else {
-					webpage = (WebPage) request.getSession().getAttribute("_last");
+					
+					if (webpage.getStatus() == WebPage.NEW) {
+
+						request.getSession().setAttribute("_last", webpage);
+						webpage.setWebApplication((WebApplication) getServletContext().getAttribute("webApplication"));
+						webpage.add(webpage.createForm());
+						webpage.setStatus(WebPage.CREATED);
+						
+					} else if (webpage.getStatus() == WebPage.CREATED) {
+						webpage = (WebPage) request.getSession().getAttribute("_last");
+					}
+					
+					if (webpage.isBlnOnLoad()) {
+						webpage.onLoad(webpage.getParams());
+					}
+					
+					response.getWriter().println(webpage.doRender());
 				}
 				
-				webpage.setWebApplication((WebApplication) getServletContext().getAttribute("webApplication"));
-				webpage.add(webpage.createForm());
-				
-				if (webpage.isBlnOnLoad()) {
-					webpage.onLoad(webpage.getParams());
-				}
-				
-				response.getWriter().println(webpage.doRender());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

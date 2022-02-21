@@ -14,7 +14,7 @@ public class SelectItem extends Component {
 	
 	
 	public SelectItem(String label, String value) {
-		super("SelectItem_" + UUID.randomUUID().toString());
+		super("SelectItem#" + UUID.randomUUID().toString());
 		this.label = label;
 		this.value = value;
 	}

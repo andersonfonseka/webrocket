@@ -21,7 +21,7 @@ public class Column extends Component {
 	public static final String DATE = "date";
 	
 	public Column(String title, String type) {
-		super("Column_" + UUID.randomUUID().toString());
+		super("Column#" + UUID.randomUUID().toString());
 		this.title = title;
 		this.type = type;
 	}

@@ -1,7 +1,10 @@
 package com.andersonfonseka.wr.components;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public abstract class Component {
 
@@ -10,6 +13,8 @@ public abstract class Component {
 	private Component parent;
 	
 	private List<Component> components = new ArrayList<Component>();
+	
+	private Map<String, Component> componentMap = new HashMap<String, Component>();
 	
 	public Component(String id) {
 		super();
@@ -22,11 +27,12 @@ public abstract class Component {
 	
 	public void add(Component component) throws RuntimeException {
 		
-		Component comp = getComponentById(component.getId(), this);
+		Component comp = this.componentMap.get(id);
 		
 		if (null == comp) {
 			component.setParent(this);
 			this.components.add(component);
+			this.componentMap.put(component.getId(), component);
 		} else {
 			throw new RuntimeException("There's a component with same Id already.");
 		}
@@ -44,29 +50,36 @@ public abstract class Component {
 		this.parent = parent;
 	}
 
-	private Component compFound = null; 
 	
 	public Component getComponentById(String id) {
-		this.compFound = null;
-		this.getComponentById(id, this);
-		return compFound;
-	}
- 	
-	public Component getComponentById(String id, Component component) {
 		
-		for (Component comp : component.getComponents()) {
-			if (comp.getId().equals(id)){
-				if (null == compFound) {
-					compFound = comp;
+		Component component = this.componentMap.get(id);
+
+		if (component == null) {
+			
+			for(Component comp : this.componentMap.values()) {
+				component = comp.getComponentById(id);
+				
+				if (component != null) {
+					Logger.getAnonymousLogger().info(component.toString());
 					break;
 				}
-			} else {
-				getComponentById(id, comp);
 			}
+			
 		}
-		return compFound;
+		
+		return component;
 	}
 
 	public abstract String doRender();
+
+	@Override
+	public String toString() {
+		return "Component [id=" + id + "]";
+	}
+	
+	
+	
+	
 
 }

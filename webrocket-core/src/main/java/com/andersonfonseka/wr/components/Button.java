@@ -7,7 +7,14 @@ public class Button extends Component {
 	
 	private String title;
 	
-	private String type;
+	public static final String SUBMIT = "submit";
+
+	public static final String BUTTON = "button";
+	
+	public static final String CANCEL = "button";
+
+	
+	private String type = SUBMIT;
 	
 	private WebAction webAction;
 	
@@ -15,16 +22,17 @@ public class Button extends Component {
 	
 	private String style = Color.PRIMARY;
 
-	public static final String SUBMIT = "submit";
-
-	public static final String BUTTON = "button";
-	
-	public static final String CANCEL = "button";
 	
 	public Button(String id, String title, String type) {
 		super(id);
 		this.title = title;
 		this.type = type;
+	}
+
+	public Button(String id, String title, WebAction webAction) {
+		super(id);
+		this.title = title;
+		this.webAction = webAction;
 	}
 	
 	public Button(String id, String title, String type, WebAction webAction) {
