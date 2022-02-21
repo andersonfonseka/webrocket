@@ -17,9 +17,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>github</id>
-			<name>Anderson Fonseca</name>
-			<url>https://github.com/andersonfonseka/webrocket</url>
+			<id>iradoman</id>
+			<url>https://pkgs.dev.azure.com/iradoman/_packaging/iradoman/maven/v1</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</distributionManagement>
 
