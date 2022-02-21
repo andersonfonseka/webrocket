@@ -47,7 +47,7 @@ public class WebRocketServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 
 		WebPage wp = (WebPage) request.getSession().getAttribute("_last");
-		Component comp = wp.getComponents().stream().filter(x -> x.getId().equals(params.get("form")[0])).findFirst().get();
+		Component comp = wp.getComponentById(params.get("form")[0]);
 		
 		if (comp instanceof WebForm) {
 			

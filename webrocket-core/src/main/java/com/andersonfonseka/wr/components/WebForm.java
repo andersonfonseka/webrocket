@@ -3,6 +3,7 @@ package com.andersonfonseka.wr.components;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.andersonfonseka.wr.validator.FormValidator;
 import com.andersonfonseka.wr.validator.ValidatorMessage;
@@ -16,8 +17,8 @@ public class WebForm extends Component {
 	private List<FormValidator> validators = new ArrayList<FormValidator>();
 
 	
-	public WebForm(String id, String title) {
-		super(id);
+	public WebForm(String title) {
+		super("WebForm#" + UUID.randomUUID().toString());
 		this.title = title;
 	}
 

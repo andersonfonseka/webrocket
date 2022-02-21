@@ -11,7 +11,7 @@ class WebFormTest {
 	@Test
 	void testDoRender() {
 		
-		WebForm wp = new WebForm("frmTeste", "Teste Web Form");
+		WebForm wp = new WebForm("Teste Web Form");
 		
 		assertTrue(wp.doRender().length() > 0);
 		
@@ -20,7 +20,7 @@ class WebFormTest {
 	@Test
 	void testWebPage() {
 		
-		WebForm wp = new WebForm("frmTeste", "Teste Web Form");
+		WebForm wp = new WebForm("Teste Web Form");
 		
 		assertTrue(wp.getId().length() > 0);
 	}
