@@ -77,6 +77,16 @@ public class WebRocketServlet extends HttpServlet {
 				response.getWriter().println(wp.doRender());
 			}
 			
+		} else {
+			
+			WebApplication webApplication = (WebApplication) getServletContext().getAttribute("webApplication");
+			wp = webApplication.getErrorPage(); 
+			request.getSession().setAttribute("_last", wp);
+			
+			response.setContentType("text/html");
+			response.setStatus(HttpServletResponse.SC_OK);
+			response.getWriter().println(wp.doRender());
+
 		}
 
 	}

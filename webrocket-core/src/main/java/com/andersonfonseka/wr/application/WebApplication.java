@@ -27,6 +27,8 @@ public class WebApplication {
 	
 	private Class<? extends WebPage> startPage;
 	
+	private Class<? extends WebPage> errorPage;
+	
 	private List<Class<? extends WebPage>> components = new ArrayList<Class<? extends WebPage>>();
 
 	public WebApplication(String context, int port, String title) {
@@ -137,6 +139,30 @@ public class WebApplication {
 
 	public void setStartPage(Class<? extends WebPage> startPage) {
 		this.startPage = startPage;
+	}
+
+	public WebPage getErrorPage() {
+		
+		WebPage wp = null;
+		
+		try {
+			wp = errorPage.newInstance();
+			wp.setWebApplication(this);
+			wp.add(wp.createForm());
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return wp;
+	}
+
+
+	public void setErrorPage(Class<? extends WebPage> errorPage) {
+		this.errorPage = errorPage;
 	}
 
 

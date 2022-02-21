@@ -25,10 +25,3 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: |
-          mvn -B versions:set -DnewVersion=200000.0.0-$GITHUB_SHA -DgenerateBackupPoms=false
-          mvn deploy
-      env:
-        GITHUB_TOKEN: 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
