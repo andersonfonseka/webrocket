@@ -8,9 +8,9 @@ import org.eclipse.jetty.util.component.AbstractLifeCycle;
 import com.andersonfonseka.wr.application.WebApplication;
 
 public class WebRocketServer {
-	
+
 	private Server server;
-	
+
 	public WebRocketServer(int port, String context, WebApplication webApplication) throws Exception {
 
 		server = new Server(port);
@@ -22,30 +22,27 @@ public class WebRocketServer {
 		server.setHandler(servletContext);
 
 		servletContext.addServlet(new ServletHolder(new WebRocketServlet(webApplication)), "/*");
-		
+
 		servletContext.setAttribute("webApplication", webApplication);
 
 	}
-	
+
 	public void start() throws Exception {
-	
+
 		if (!server.getState().equals(AbstractLifeCycle.STARTED)) {
 			server.start();
 		}
 	}
-	
+
 	public void stop() throws Exception {
-		
+
 		if (server.getState().equals(AbstractLifeCycle.STARTED)) {
 			server.stop();
 		}
 	}
-	
+
 	public String status() throws Exception {
 		return server.getState();
 	}
-
-
-	
 
 }

@@ -11,6 +11,8 @@ public class Button extends Component {
 
 	public static final String BUTTON = "button";
 	
+	public static final String MODAL = "modal";
+	
 	public static final String CANCEL = "button";
 
 	
@@ -69,7 +71,21 @@ public class Button extends Component {
 
 	@Override
 	public String doRender() {
-		return "<button id=" + this.getId() + " type=" + this.type +" class=\"btn btn-" + this.style + " mb-3\" onclick=\"setSubmit(this.id);\">" + this.title + "</button>";
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if (this.type.equals(Button.MODAL)) {
+			
+			sb.append("<button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">\r\n"
+					+ this.title
+					+ "</button>");
+			
+		} else {
+			
+			sb.append("<button id=" + this.getId() + " type=" + this.type +" class=\"btn btn-" + this.style + " mb-3\" onclick=\"setSubmit(this.id);\">" + this.title + "</button>");
+		}
+		
+		return sb.toString();
 	}
 
 }

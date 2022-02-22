@@ -1,7 +1,12 @@
 package com.andersonfonseka.wr.server;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,15 +34,40 @@ public class WebRocketServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		response.setStatus(HttpServletResponse.SC_OK);
-			
-		WebPage webpage = this.webApplication.getStartPage();
-		webpage.setWebApplication((WebApplication) getServletContext().getAttribute("webApplication"));
-		webpage.add(webpage.createForm());
 		
-		request.getSession().setAttribute("_last", webpage);
-		response.getWriter().println(webpage.doRender());
+		if (request.getParameter("op") != null) {
+			
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream(request.getParameter("op"));
+			BufferedReader bis = new BufferedReader(new InputStreamReader(in));
+			
+			response.setContentType("text/css");
+			response.setStatus(HttpServletResponse.SC_OK);
+			
+
+			int cnt = 0;
+			final char[] buf = new char[163873];
+			while (bis.read(buf) != -1) cnt++;
+			in.close();
+			
+		    response.getWriter().write(buf);  
+		    response.flushBuffer();
+		      
+		} else {
+
+			
+			response.setContentType("text/html");
+			response.setStatus(HttpServletResponse.SC_OK);
+				
+			WebPage webpage = this.webApplication.getStartPage();
+			webpage.setWebApplication((WebApplication) getServletContext().getAttribute("webApplication"));
+			webpage.add(webpage.createForm());
+			
+			request.getSession().setAttribute("_last", webpage);
+			response.getWriter().println(webpage.doRender());
+			
+		}
+		
+		
 		
 	}
 	

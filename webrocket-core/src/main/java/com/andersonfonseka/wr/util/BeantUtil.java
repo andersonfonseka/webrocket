@@ -3,7 +3,7 @@ package com.andersonfonseka.wr.util;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ComponentUtil {
+public class BeantUtil {
 	
 	public static String getComponentValue(Map<String, String[]> params, String id) {
 		

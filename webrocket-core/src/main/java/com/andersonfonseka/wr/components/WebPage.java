@@ -1,5 +1,9 @@
 package com.andersonfonseka.wr.components;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Map;
 import java.util.UUID;
 
@@ -92,15 +96,19 @@ public abstract class WebPage extends Component {
 
 	public String doRender() {
 		
+		
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("<head>");
 		
 		sb.append("<!-- Latest compiled and minified CSS -->\r\n"
-				+ "<link href=\"https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">");
+				+ "<link href=\"" + this.webApplication.getContext()  + "?op=css/bootstrap.min.css\" rel=\"stylesheet\">");
 
 		sb.append("<!-- Latest compiled and minified CSS -->\r\n"
-				+ "<link rel=\"stylesheet\" href=\"https://getbootstrap.com/docs/5.1/assets/css/docs.css\">");
+				+ "<link rel=\"stylesheet\" href=\"" + this.webApplication.getContext() + "?op=css/docs.css\">");
+
+		sb.append("<script src=\"" + this.webApplication.getContext() + "?op=js/bootstrap.bundle.min.js\"></script>");
+		sb.append("<script src=\"" + this.webApplication.getContext() + "?op=js/docs.min.js\"></script>");
 
 		
 		sb.append("</head>");
@@ -131,8 +139,6 @@ public abstract class WebPage extends Component {
 		sb.append("<script>");
 		sb.append("function setSubmit(id) { document.getElementById('submitId').value = id; }");
 		sb.append("</script>");
-
-		sb.append("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM\" crossorigin=\"anonymous\"></script>");
 		
 		sb.append("</body>");
 		
