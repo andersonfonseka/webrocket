@@ -1,9 +1,5 @@
 package com.andersonfonseka.wr.components;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Map;
 import java.util.UUID;
 
@@ -36,6 +32,10 @@ public abstract class WebPage extends Component {
 	
 	private int container = 2;
 	
+	public WebPage() {
+		super("WebPage_" + UUID.randomUUID().toString());
+	}
+
 	public WebPage(String title) {
 		super("WebPage_" + UUID.randomUUID().toString());
 		this.title = title;
@@ -110,6 +110,8 @@ public abstract class WebPage extends Component {
 		sb.append("<script src=\"" + this.webApplication.getContext() + "?op=js/bootstrap.bundle.min.js\"></script>");
 		sb.append("<script src=\"" + this.webApplication.getContext() + "?op=js/docs.min.js\"></script>");
 
+		sb.append("<title>" + this.webApplication.getTitle() + "</title>");
+			
 		
 		sb.append("</head>");
 

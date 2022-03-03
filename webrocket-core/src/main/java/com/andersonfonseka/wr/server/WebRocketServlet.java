@@ -1,12 +1,11 @@
 package com.andersonfonseka.wr.server;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,14 +25,34 @@ public class WebRocketServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = -6154475799000019575L;
 	
+	public WebRocketServlet() {
+		super();
+	}
+	
 	public WebRocketServlet(WebApplication webApplication) {
 		super();
 		this.webApplication = webApplication;
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// For Tomcat Servers
+		if (null == webApplication) {
+			
+			String wbAppClass =  request.getServletContext().getInitParameter("webAppClass");
+			
+			try {
+				this.webApplication = (WebApplication) Class.forName(wbAppClass).newInstance();
+				this.webApplication.setContext(getServletContext().getContextPath());
+				getServletContext().setAttribute("webApplication", this.webApplication);
+			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
 		
 		if (request.getParameter("op") != null) {
 			
@@ -46,7 +65,11 @@ public class WebRocketServlet extends HttpServlet {
 
 			int cnt = 0;
 			final char[] buf = new char[163873];
-			while (bis.read(buf) != -1) cnt++;
+			
+			while (bis.read(buf) != -1) {
+				cnt++;
+			}
+			
 			in.close();
 			
 		    response.getWriter().write(buf);  
@@ -71,7 +94,7 @@ public class WebRocketServlet extends HttpServlet {
 		
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		Map<String, String[]> params = request.getParameterMap();
@@ -96,8 +119,7 @@ public class WebRocketServlet extends HttpServlet {
 					webForm.validate(params);
 				}
 			}
-			
-			
+						
 			//runAction
 			if (webForm.getMessages().isEmpty()) {
 				runAction(response, request, params, button);
@@ -151,12 +173,18 @@ public class WebRocketServlet extends HttpServlet {
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
 		
+		Map<String, String[]> actionParams = new HashMap<String, String[]>(params);
+		
 		Button input = (Button) button;
 		
 		if (null != input.getWebAction()) {
 			try {
 				
-				WebPage webpage = input.getWebAction().execute(params);
+				if (!input.getParams().isEmpty()) {
+					actionParams.putAll(input.getParams());
+				}
+				
+				WebPage webpage = input.getWebAction().execute(actionParams);
 
 				
 				if (null != webpage) {

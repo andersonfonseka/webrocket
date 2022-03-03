@@ -33,7 +33,7 @@ public class WebApplication {
 
 	public WebApplication(String context, int port, String title) {
 		super();
-		this.context = "/" + context;
+		this.context = context;
 		this.port = port;
 		this.title = title;
 
@@ -72,6 +72,10 @@ public class WebApplication {
 	
 	public void setMessageBundle(MessageBundle messageBundle) {
 		this.messageBundle = messageBundle;
+	}
+	
+	public void setContext(String context) {
+		this.context = context;
 	}
 
 

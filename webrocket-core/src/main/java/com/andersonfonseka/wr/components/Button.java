@@ -1,5 +1,9 @@
 package com.andersonfonseka.wr.components;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 import com.andersonfonseka.wr.action.WebAction;
 import com.andersonfonseka.wr.style.Color;
 
@@ -15,6 +19,7 @@ public class Button extends Component {
 	
 	public static final String CANCEL = "button";
 
+	private Map<String, String[]> params = new HashMap<String, String[]>();
 	
 	private String type = SUBMIT;
 	
@@ -60,6 +65,14 @@ public class Button extends Component {
 		this.immediate = immediate;
 		this.style = style;
 	}
+	
+	public Button(String title, String type, WebAction webAction, boolean immediate) {
+		super("Button#" + UUID.randomUUID().toString());
+		this.title = title;
+		this.type = type;
+		this.webAction = webAction;
+		this.immediate = immediate;
+	}
 
 	public WebAction getWebAction() {
 		return webAction;
@@ -67,6 +80,14 @@ public class Button extends Component {
 
 	public boolean isImmediate() {
 		return immediate;
+	}
+	
+	public Map<String, String[]> getParams() {
+		return params;
+	}
+
+	public void addParam(String key, String value) {
+		this.params.put(key, new String[] {value});
 	}
 
 	@Override
@@ -87,5 +108,6 @@ public class Button extends Component {
 		
 		return sb.toString();
 	}
+
 
 }

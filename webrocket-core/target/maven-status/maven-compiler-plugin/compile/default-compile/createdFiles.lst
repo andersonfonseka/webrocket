@@ -3,6 +3,7 @@ com\andersonfonseka\wr\components\Label.class
 com\andersonfonseka\wr\message\MessageDialogConfirmation.class
 com\andersonfonseka\wr\components\Input.class
 com\andersonfonseka\wr\components\WebPage.class
+com\andersonfonseka\wr\util\BeantUtil.class
 com\andersonfonseka\wr\validator\Validator.class
 com\andersonfonseka\wr\components\Card.class
 com\andersonfonseka\wr\style\Color.class
@@ -10,7 +11,6 @@ com\andersonfonseka\wr\message\MessageBundle.class
 com\andersonfonseka\wr\components\WebForm.class
 com\andersonfonseka\wr\components\DataGrid.class
 com\andersonfonseka\wr\components\Separator.class
-com\andersonfonseka\wr\util\ComponentUtil.class
 com\andersonfonseka\wr\validator\RequiredValidator.class
 com\andersonfonseka\wr\components\InputText.class
 com\andersonfonseka\wr\message\MessageDialog.class

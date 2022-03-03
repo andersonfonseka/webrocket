@@ -25,6 +25,10 @@ public abstract class Component {
 		return id;
 	}
 	
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void add(Component component) throws RuntimeException {
 		
 		Component comp = this.componentMap.get(id);
@@ -71,11 +75,44 @@ public abstract class Component {
 		return component;
 	}
 
+	public void remove(Object component) {
+		
+		if (this.components.indexOf(component) != -1) {
+			this.components.remove(this.components.indexOf(component));
+		}
+		
+	}
+	
 	public abstract String doRender();
 
 	@Override
 	public String toString() {
 		return "Component [id=" + id + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Component other = (Component) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 	
 	
