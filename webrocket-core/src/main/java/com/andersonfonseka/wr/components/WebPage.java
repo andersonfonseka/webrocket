@@ -57,7 +57,10 @@ public abstract class WebPage extends Component {
 
 	public void setWebApplication(WebApplication webApplication) {
 		this.webApplication = webApplication;
-		message = this.webApplication.getMessageBundle().getBundle(this.webApplication.getDefaultMessageBundle());
+		
+		if (null != this.webApplication.getMessageBundle()) {
+			message = this.webApplication.getMessageBundle().getBundle(this.webApplication.getDefaultMessageBundle());
+		}
 	}
 	
 	public Message getMessageBundle() {
