@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.andersonfonseka.wr.model.WebEntity;
 import com.andersonfonseka.wr.validator.FormValidator;
 import com.andersonfonseka.wr.validator.ValidatorMessage;
 
@@ -12,14 +13,23 @@ public class WebForm extends Component {
 	
 	private List<ValidatorMessage> messages = new ArrayList<ValidatorMessage>();
 	
-	private String title;
+	private String title = "";
+	
+	private String subtitle = "";
 	
 	private List<FormValidator> validators = new ArrayList<FormValidator>();
-
 	
 	public WebForm(String title) {
 		super("WebForm#" + UUID.randomUUID().toString());
 		this.title = title;
+	}
+	
+	public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
 	}
 
 	public void clearMessages() {
@@ -46,8 +56,6 @@ public class WebForm extends Component {
 
 	public void validate(Map<String, String[]> params) {
 		
-
-		
 		if (this.getMessages().isEmpty()) {
 			for (FormValidator validator : validators) {
 				
@@ -68,6 +76,7 @@ public class WebForm extends Component {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("<h3>" + this.title + "</h3>");
+		sb.append("<small>" + this.subtitle + "</small>");
 
 		if (!this.messages.isEmpty()) {
 			

@@ -1,4 +1,5 @@
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\message\Message.java
+C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\model\WebEntity.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\action\WebAction.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\util\BeantUtil.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\style\Color.java
@@ -26,6 +27,7 @@ C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\anderso
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\Container.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\message\MessageBundle.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\Button.java
+C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\WebCRUDForm.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\Component.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\Column.java
 C:\Users\55819\webrocket\repo\webrocket\webrocket-core\src\main\java\com\andersonfonseka\wr\components\Input.java
